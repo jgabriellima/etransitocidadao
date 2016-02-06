@@ -5,42 +5,34 @@
     text-align: center;
     transform: translate3d(0px, 0px, 0px) scale(1);
 }
-.button {
-    border-color: rgba(178, 178, 178, 0.53);!important;
-}
 </style>
 <ion-view title="Consulta ao IPVA">
     <ion-content class="has-header bg-color" overflow-scroll="false" scroll="false" style="height: 100%;display: table !important;width: 100% !important;height: 100% !important;padding: 20px;">
         <div class="scrollcenter">
             <div class="row row-center">
                 <div class="col col-center">
-                    <i class="ion-android-car" style="font-size:3em"></i>
+                    <i class="ion-android-car" style="font-size:3em;color: rgb(245, 191, 73);"></i>
                     <p>Consulta ao IPVA</p>
-                    <div class="list list-inset" style="background-color: rgba(255, 255, 255, 0);">
-                        <form name="login_form" class="ng-pristine ng-invalid ng-invalid-required ng-valid" novalidate="" style="position: relative;top: 28%;" ng-submit="submit()">
-                            <div class="list input-fields">
-                                <label class="item item-input" style="border-top-left-radius: 20px;border-top-right-radius: 20px;">
-                                    <span class="input-label">CPF</span>
-                                    <input class="ng-pristine ng-invalid ng-invalid-required ng-touched ng-untouched ng-valid" ng-model="q.c" required="" style="font-size: 1.2em;text-transform: uppercase;" maxlength="11" oninput="maxLengthCheck(this)" ng-minlength="11" type="number">
-                                </label>
-                                <label class="item item-input">
-                                    <span class="input-label">RENAVAM</span>
-                                    <input class="ng-pristine ng-invalid ng-invalid-required ng-touched ng-untouched ng-valid" ng-model="q.r" required="" style="font-size: 1.2em;text-transform: uppercase;" maxlength="9" oninput="maxLengthCheck(this)" ng-minlength="9" type="number">
-                                </label>
-                                <label class="item item-input" style="border-bottom-left-radius: 20px;border-bottom-right-radius: 20px;">
-                                    <span class="input-label">PLACA</span>
-                                    <input class="ng-pristine ng-invalid ng-invalid-required ng-touched ng-untouched ng-valid" ng-model="q.p" required="" style="font-size: 1.2em;text-transform: uppercase;" maxlength="7" oninput="maxLengthCheck(this)" ng-minlength="7" type="text">
-                                </label>
-                                <button type="submit" class="login button button-block" ng-click="buscar()" ng-disabled="!login_form.$invalid" style="border-radius: 20px;">Buscar veículo</button>
-                                <p ng-show="error" class="message error ng-binding ng-hide"></p>
-                            </div>
-                            <div class="alternative-actions" align="center">
-                                <a class="forgot-password button button-small button-clear ion-android-list" on-tap="openHistory();" style="color: rgb(92, 92, 92);font-size: 1em;cursor:pointer">
-                                Histórico de buscas</a>
-                            </div>
-                        </form>
+                    <div class="list">
+                        <label class="item item-input">
+                            <span class="input-label">CPF</span>
+                            <input ng-model="q.c" maxlength="11" oninput="maxLengthCheck(this)" ng-minlength="11" type="number">
+                        </label>
+                        <label class="item item-input">
+                            <span class="input-label">RENAVAM</span>
+                            <input ng-model="q.r" maxlength="9" oninput="maxLengthCheck(this)" ng-minlength="9" type="number">
+                        </label>
+                        <label class="item item-input">
+                            <span class="input-label">PLACA</span>
+                            <input ng-model="q.p" maxlength="7" oninput="maxLengthCheck(this)" ng-minlength="7" type="text" style="text-transform: uppercase;">
+                        </label>
+                        <button type="submit" class="login button button-block " ng-click="buscar()" style="margin-bottom: 0px;"><i class="ion-ios-search-strong" style="margin-right: 10px;"></i>Buscar veículo</button>
                     </div>
-                    <div>
+                    <div class="alternative-actions" align="center">
+                        <a class="forgot-password button button-small button-clear ion-android-list" on-tap="openHistory();" style="color: rgb(92, 92, 92);font-size: 1em;cursor:pointer">
+                                Histórico de buscas</a>
+                    </div>
+                    <div style="margin-top: 20px;">
                         <img src="images/huddle3.png" alt="" width="80">
                     </div>
                     <div style="height:50px"></div>

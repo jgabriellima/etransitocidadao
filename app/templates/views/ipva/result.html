@@ -3,12 +3,19 @@
     padding-top: 3px;
     padding-bottom: 3px;
 }
+.item{
+    background-color: rgba(255, 255, 255, 0.60);
+}
+.item p {
+    font-weight: bold;
+}
 </style>
 <ion-view title="Resultado da Consulta">
     <ion-content class="has-header bg-color">
         <div class="list list-inset" style="background-color: rgba(255, 255, 255, 0);">
-            <div class="item item-divider" align="center" style="border-top-left-radius: 20px;border-top-right-radius: 20px;">
-                Dados Gerais
+            <div style="margin-bottom: 10px;margin-top: 10px;" align="center">
+                <div style="font-weight:bold">Dados Gerais</div>
+                <img style="width: 50%;" src="images/header.png" alt="">
             </div>
             <a class="item item-result">
                 <p>Proprietário:</p>
@@ -18,8 +25,9 @@
                 <p>CPF:</p>
                 <h2>97794643287</h2>
             </a>
-            <div class="item item-divider" align="center">
-                Dados do Veículo
+            <div style="margin-bottom: 10px;margin-top: 10px;" align="center">
+                <div style="font-weight:bold">Dados do Veículo</div>
+                <img style="width: 50%;" src="images/header.png" alt="">
             </div>
             <a class="item item-result">
                 <p>Placa:</p>
@@ -37,8 +45,9 @@
                 <p>Ano de Fabricação:</p>
                 <h2>2012</h2>
             </a>
-            <div class="item item-divider" align="center">
-                IPVA
+            <div style="margin-bottom: 10px;margin-top: 10px;" align="center">
+                <div style="font-weight:bold">Dados de IPVA</div>
+                <img style="width: 50%;" src="images/header.png" alt="">
             </div>
             <a class="item item-result">
                 <p align="center">Você não possui débitos para este veículo!</p>
@@ -71,14 +80,13 @@
                 <p>Total:</p>
                 <h2>R$ 0,00</h2>
             </a>
-            <div class="item item-divider" align="center">
-                Código para Pagamento
+              <div style="margin-bottom: 10px;margin-top: 10px;" align="center">
+                <div style="font-weight:bold">Código para Pagamento</div>
+                <img style="width: 50%;" src="images/header.png" alt="">
             </div>
             <a class="item item-result">
-                <p style="white-space: normal;">858400000060 752201396952 417016891775 100491591523 858400000060 752201396952 417016891775 100491591523</p>
-                <div align="center">
-                    <a class="forgot-password button button-small button-clear ion-pricetag" style="color: rgb(92, 92, 92);font-size: 1em;cursor:pointer">Copiar Código de Barras</a>
-                </div>
+                <p style="white-space: normal;" align="center">858400000060 752201396952 417016891775 100491591523 858400000060 752201396952 417016891775 100491591523</p>
+                <button type="submit" class="login button button-block ion-pricetag" style="margin-bottom: 0px;">Copiar Código de Barras</button>
             </a>
         </div>
     </ion-content>
