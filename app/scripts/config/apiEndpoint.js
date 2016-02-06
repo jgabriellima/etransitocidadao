@@ -11,7 +11,7 @@
 angular.module('Etransitocidadao')
   // development
   .constant('API_ENDPOINT', {
-    host: 'https://ipvacloudservice.herokuapp.com/ipva/',
+    host: 'https://ipvacloudservice.herokuapp.com',
     port: 3000,
     path: '',
     needsAuth: false

@@ -3,13 +3,14 @@ a.item-content {
     background-color: #38BA96 !important;
     color: white !important;
     font-weight: 400;
-    font-size: 1.2em;
+    font-size: 1em;
+    text-align: center;
 }
 </style>
 <ion-side-menus>
     <!-- Center content -->
     <ion-side-menu-content>
-        <ion-nav-bar class="bar-header bar-calm">
+        <ion-nav-bar class="bar-stable-custom">
             <ion-nav-back-button>
             </ion-nav-back-button>
             <ion-nav-buttons side="left">
@@ -18,7 +19,6 @@ a.item-content {
             </ion-nav-buttons>
         </ion-nav-bar>
         <ion-nav-view name="viewContent">
-           
         </ion-nav-view>
     </ion-side-menu-content>
     <!-- Left menu -->
@@ -28,14 +28,23 @@ a.item-content {
                 <ion-item menu-close href="" style="border-color: #38ba96;">
                     <div style="height:8px"></div>
                 </ion-item>
-                <ion-item menu-close href="#/menu/main" style="border-color: #38ba96;">
+                <ion-item menu-close href="#/" style="border-color: #38ba96;">
                     <span class="span_item">Meus Veículos</span>
                 </ion-item>
-                <ion-item menu-close href="#/menu/dengue" style="border-color: #38ba96;">
+                <ion-item menu-close href="#/app/ipva" style="border-color: #38ba96;">
                     <span class="span_item">Consulta ao IPVA</span>
                 </ion-item>
-                <ion-item menu-close href="#/menu/map" style="border-color: #38ba96;">
+                <ion-item menu-close href="#/" style="border-color: #38ba96;">
                     <span class="span_item">Consulta de Veículos</span>
+                </ion-item>
+                <ion-item menu-close href="#/app/news" style="border-color: #38ba96;">
+                    <span class="span_item">@Belémtransito <br> @BlitzBelém</span>
+                </ion-item>
+                <ion-item menu-close href="#/app/about" style="border-color: #38ba96;">
+                    Sobre a Huddle3
+                </ion-item>
+                <ion-item menu-close style="border-color: #38ba96;">
+                    <img src="images/huddle3.png" style="width:50%" alt="">
                 </ion-item>
             </ion-list>
         </ion-content>

@@ -5,6 +5,6 @@
  * @description
  * # contatoController
  */
-angular.module('Etransitocidadao').controller('contatoController', function($scope) {
+angular.module('Etransitocidadao').controller('aboutController', function($scope) {
 
   });

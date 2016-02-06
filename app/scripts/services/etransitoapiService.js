@@ -7,7 +7,7 @@
  */
 angular.module('Etransitocidadao').factory("API", function($http, $q, API_ENDPOINT) {
     var api = {};
-    var _ipva = function(params) {
+    api.ipva = function(params) {
         var deffered = $q.defer();
         $http({
             method: 'GET',
@@ -34,7 +34,5 @@ angular.module('Etransitocidadao').factory("API", function($http, $q, API_ENDPOI
         });
         return deffered.promise;
     };
-    return {
-        ipva: _ipva
-    }
+    return api;
 });
