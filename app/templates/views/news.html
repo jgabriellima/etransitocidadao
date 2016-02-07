@@ -4,7 +4,7 @@
         <p ng-hide='feed' align="center" style="font-weight: bold;">Carregando tweets...</p>
         <div class="list card" ng-repeat='tweet in feed.tweets'>
             <div class="item item-avatar">
-                <img src="">
+                <img src="{{tweet.author.avatar}}">
                 <h2>{{tweet.author.nickName}}</h2>
                 <p style="font-size: 0.7em;">{{tweet.time | date: 'dd/MM/yyyy'}}</p>
             </div>

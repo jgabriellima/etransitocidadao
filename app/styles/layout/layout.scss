@@ -105,3 +105,34 @@ body {
     width: 20px !important;
     left: 26px !important;
 }
+
+.placa {
+    background: url('../images/placa.png') no-repeat center;
+    height: 120px;
+    width: 100%;
+    margin-top: 20px;
+    background-size: 100% 100%;
+    border: 0;
+}
+
+.placa_top {
+    position: relative;
+    /*top: 13px;*/
+    text-align: center;
+}
+
+.placa_num {
+    position: relative;
+    top: 25px;
+    font-size: 50px;
+    font-weight: bold;
+    text-align: center;
+}
+.close-placa {
+    position: absolute;
+    right: 0;
+    margin-right: 4px;
+    font-size: 2.5em;
+    top: -3px;
+    color: #1d1f20;
+}

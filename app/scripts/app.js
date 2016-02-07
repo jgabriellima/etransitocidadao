@@ -14,7 +14,6 @@ angular.module('Etransitocidadao', ['ionic', 'ngCordova', 'ngResource', 'ngTweet
                 cordova.plugins.Keyboard.hideKeyboardAccessoryBar(true);
                 cordova.plugins.Keyboard.disableScroll(true);
             }
-            if (window.cordova) {}
             if (window.StatusBar) {
                 StatusBar.styleDefault();
             }
@@ -76,7 +75,7 @@ angular.module('Etransitocidadao', ['ionic', 'ngCordova', 'ngResource', 'ngTweet
                 cache: true,
                 views: {
                     'viewContent': {
-                        templateUrl: 'templates/views/veiculo/form.html',
+                        templateUrl: 'templates/views/meusveiculos/form.html',
                         controller: 'meusveiculosController'
                     }
                 }
@@ -111,7 +110,7 @@ angular.module('Etransitocidadao', ['ionic', 'ngCordova', 'ngResource', 'ngTweet
                     }
                 }
             })
-             .state('app.about', {
+            .state('app.about', {
                 url: '/about',
                 cache: true,
                 views: {
@@ -121,14 +120,13 @@ angular.module('Etransitocidadao', ['ionic', 'ngCordova', 'ngResource', 'ngTweet
                     }
                 }
             });
-        // redirects to default route for undefined routes
         $urlRouterProvider.otherwise('/app/ipva');
     });
 
 angular.module('Etransitocidadao').value('config', {
-    tweet_id: '681538393965236224'
+    tweet_id_blitzbelem: '691450063558688768',
+    tweet_id_belemtransito: '696392923919880198'
 });
-
 
 function vform(id) {
     var obj = {

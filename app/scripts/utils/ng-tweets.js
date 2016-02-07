@@ -56,9 +56,11 @@
                     favorites_ = el.getElementsByClassName('stats-favorites')[0];
                     tweet.favorites = favorites_.textContent || favorites_.innerText;
                 } catch (e) {}
+                console.log();
+                /*el.getElementsByClassName('u-photo')[0].getAttribute("data-src-1x")*/
                 tweet.author = {
-                    url: "" /*tmp.getElementsByClassName('profile')[0].getAttribute('href')*/ ,
-                    avatar: el.getElementsByClassName('u-photo')[0].getAttribute('src'),
+                    url: el.getElementsByClassName('u-url')[0].getAttribute('href'),
+                    avatar: el.getElementsByClassName('u-photo')[0].getAttribute("data-src-2x"),
                     fullName: fullName_.textContent || fullName_.innerText,
                     nickName: nickName_.textContent || nickName_.innerText
                 };
