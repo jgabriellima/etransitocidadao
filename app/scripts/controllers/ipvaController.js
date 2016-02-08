@@ -6,7 +6,7 @@
  * # ipvaController
  */
 angular.module('Etransitocidadao')
-    .controller('ipvaController', function($scope, $location, $localstorage,API, Alerts, $ionicLoading) {
+    .controller('ipvaController', function($scope, $location, $localstorage, API, Alerts, $ionicLoading) {
         $scope.query = {}
 
         $scope.buscar = function() {
@@ -61,5 +61,19 @@ angular.module('Etransitocidadao')
             };
 
             // 
+        };
+
+        $scope.msg = "Após o preenchimento correto das informações, nossos sistemas irão consultar a SEFA-PA através do seu portal de serviços: https://app.sefa.pa.gov.br/servicosipva \n O tempo de resposta, assim como o conteúdo depende totalmente da disponibilidade do Portal de Serviços.";
+        $scope.info_active = false;
+        /**/
+        $scope.showinfo = function() {
+            $scope.info_active = true;
+        };
+
+        $scope.msghistory = "Os dados de histórico de busca são armazenados apenas localmente no seu dispositivo, sua limpeza não interfere em nada no serviço oferecido.";
+        $scope.info_active_history = false;
+        /**/
+        $scope.showinfohistory = function() {
+            $scope.info_active_history = true;
         };
     });

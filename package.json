@@ -3,7 +3,9 @@
   "version": "1.0.0",
   "author": "J. Gabriel Lima <jgabriel.ufpa@gmail.com>",
   "description": "",
-  "dependencies": {},
+  "dependencies": {
+    "ng-walkthrough": "^0.3.1"
+  },
   "devDependencies": {
     "beepbeep": "^1.2.0",
     "connect-livereload": "^0.5.2",
@@ -52,11 +54,15 @@
       "locator": "https://github.com/apache/cordova-plugin-whitelist.git",
       "id": "cordova-plugin-whitelist"
     },
-    "cordova-plugin-inappbrowser"
+    "cordova-plugin-inappbrowser",
+    "cordova-plugin-device",
+    {
+      "locator": "https://github.com/danwilson/google-analytics-plugin.git",
+      "id": "cordova-plugin-google-analytics"
+    }
   ],
   "cordovaPlatforms": [
     "android",
-    "ios",
     {
       "platform": "android",
       "version": "",

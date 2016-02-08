@@ -1,13 +1,23 @@
 <style>
 </style>
 <ion-view title="Meus Veículos">
+    <walkthrough id="info" walkthrough-type="transparency" focus-element-id="btn_add" icon="arrow" main-caption="{{msg}}" icon-padding-left="0" icon-padding-top="30" is-active="info_active" force-caption-location="BOTTOM" >
+    </walkthrough>
+    <ion-nav-buttons side="right">
+        <a href="/#/app/meusveiculosform" id="btn_add" class="button" style="border: 0; background-color: white; font-size: 2em;">
+            <i class="ion-ios-plus-outline"></i>
+        </a>
+        <button class="button " ng-click="showinfo()" style="border: 0; background-color: white; font-size: 2em;color: #38ba96;">
+            <i class="ion-information-circled"></i>
+        </button>
+    </ion-nav-buttons>
     <ion-content class="has-header bg-color">
         <div style="margin-bottom: 2px; margin-top: 15px; left: 50%; width: 60%; margin-left: 20%;" align="center">
-        <p align="center">
-            Cadastre seu veículo abaixo para uma busca imediata!
-        </p>
-        <a class="login button button-block" href="/#/app/meusveiculosform">Adicionar</a> 
-            <img style="width: 50%;" src="images/header.png" alt="">
+            <p align="center">
+                Cadastre seu veículo abaixo para uma busca imediata!
+            </p>
+            <!-- <a class="login button button-block" href="/#/app/meusveiculosform">Adicionar</a> -->
+            <img style="width: 50%;height: 4px;" src="images/header.png" alt="">
         </div>
         <div class="list list-inset" style="background-color: rgba(255, 255, 255, 0);margin-top: 0;">
             <a class="item item-result placa">

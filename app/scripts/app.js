@@ -7,7 +7,7 @@
  * # Initializes main application and routing
  * Main module of the application.
  */
-angular.module('Etransitocidadao', ['ionic', 'ngCordova', 'ngResource', 'ngTweets'])
+angular.module('Etransitocidadao', ['ionic', 'ngCordova', 'ngResource', 'ng-walkthrough', 'ngTweets'])
     .run(function($ionicPlatform) {
         $ionicPlatform.ready(function() {
             if (window.cordova && window.cordova.plugins && window.cordova.plugins.Keyboard) {
