@@ -6,8 +6,9 @@
  * # ipvaresultController
  */
 angular.module('Etransitocidadao')
-    .controller('ipvaresultController', function($scope, $location,$localstorage, Alerts, $ionicLoading) {
+    .controller('ipvaresultController', function($scope, $location, $localstorage, Alerts, $ionicLoading) {
         // $scope.result = {};
+        $scope.q = {};
         $scope.init = function() {
             $scope.result = $localstorage.getObject('ipvaresult');
             $scope.debitos = true;
@@ -21,4 +22,22 @@ angular.module('Etransitocidadao')
             console.log($scope.result);
         };
 
+        $scope.share = function() {
+            $ionicLoading.show({
+                template: 'Compartilhando..!'
+            });
+            $cordovaSocialSharing
+                .share(message, subject, file, link) // Share via native share sheet
+                .then(function(result) {
+                    $ionicLoading.hide();
+                    Alerts.default($scope, "Sucesso!", "Compartilhamento realizado com sucesso.", "Ok", function() {});
+                }, function(err) {
+                    $ionicLoading.hide();
+                    Alerts.default($scope, "Ops!", "Compartilhamento não realizado.", "Ok", function() {});
+                });
+
+        };
+        $scope.novaconsulta = function() {
+            alert(JSON.stringify($scope.q));
+        }
     });

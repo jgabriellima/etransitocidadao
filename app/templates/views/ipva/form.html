@@ -11,7 +11,7 @@
 }
 </style>
 <ion-view title="Consulta ao IPVA">
-    <walkthrough id="info_consulta_ipva" walkthrough-type="transparency" focus-element-id="btn_add" icon="single_tap" main-caption="{{msg}}" icon-padding-left="0" icon-padding-top="40" is-active="info_active" >
+    <walkthrough id="info_consulta_ipva" walkthrough-type="transparency" focus-element-id="btn_add" icon="single_tap" main-caption="{{msg}}" icon-padding-left="0" icon-padding-top="40" is-active="info_active">
     </walkthrough>
     <ion-nav-buttons side="right">
         <button class="button " ng-click="showinfo()" style="border: 0; background-color: white; font-size: 2em;color: #38ba96;">
@@ -24,27 +24,29 @@
                 <div class="col col-center">
                     <i class="ion-android-car" style="font-size:3em;color: rgb(245, 191, 73);"></i>
                     <p>Consulta ao IPVA</p>
-                    <div class="list" >
-                        <label class="item item-input">
-                            <span class="input-label">CPF</span>
-                            <input ng-model="query.c" maxlength="11" oninput="maxLengthCheck(this)" ng-minlength="11" type="number">
-                        </label>
-                        <label class="item item-input">
-                            <span class="input-label">RENAVAM</span>
-                            <input ng-model="query.r" maxlength="9" oninput="maxLengthCheck(this)" ng-minlength="9" type="number">
-                        </label>
-                        <label class="item item-input">
-                            <span class="input-label">PLACA</span>
-                            <input ng-model="query.p" maxlength="7" oninput="maxLengthCheck(this)" ng-minlength="7" type="text" style="text-transform: uppercase;">
-                        </label>
-                        <label class="item item-input item-select">
-                            <span class="input-label">UF</span>
-                            <select style="text-transform: uppercase;">
-                                <option value="">Selecione</option>
-                                <option value="PA">PA</option>
-                            </select>
-                        </label>
-                        <button id="btn_add" type="submit" class="login button button-block " ng-click="buscar()" style="margin-bottom: 0px;"><i class="ion-ios-search-strong" style="margin-right: 10px;"></i>Buscar veículo</button>
+                    <div class="list">
+                        <form id="search" ng-submit="buscar()">
+                            <label class="item item-input">
+                                <span class="input-label">CPF</span>
+                                <input id="cpf" ng-model="query.c" title="CPF" type="text" onkeypress="mascara(this,cpf_mask)" onkeyup="mascara(this,cpf_mask)" maxlength="14" data-req="true" data-validation="cpf">
+                            </label>
+                            <label class="item item-input">
+                                <span class="input-label">RENAVAM</span>
+                                <input id="renavam" ng-model="query.r" title="RENAVAM" maxlength="9" type="number" data-req="true" data-validation"renavam">
+                            </label>
+                            <label class="item item-input">
+                                <span class="input-label">PLACA</span>
+                                <input id="placa" ng-model="query.p" title="PLACA" maxlength="8" type="text" data-validation="placa" data-req="true" style="text-transform: uppercase;">
+                            </label>
+                            <label class="item item-input item-select">
+                                <span class="input-label">UF</span>
+                                <select id="uf" style="text-transform: uppercase;">
+                                    <option value="">Selecione</option>
+                                    <option value="PA">PA</option>
+                                </select>
+                            </label>
+                            <button id="btn_add" type="submit" class="login button button-block " style="margin-bottom: 0px;"><i class="ion-ios-search-strong" style="margin-right: 10px;"></i>Buscar veículo</button>
+                        </form>
                     </div>
                     <div class="alternative-actions" align="center">
                         <a class="forgot-password button button-small button-clear ion-android-list" href="/#/app/ipvahistory" style="color: rgb(92, 92, 92);font-size: 1em;cursor:pointer">

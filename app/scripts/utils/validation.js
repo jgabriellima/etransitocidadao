@@ -1,3 +1,79 @@
+/*
+data-req="true" 
+data-validation="date/cpf/email/placa"
+data-eq-value=""
+*/
+function vform(id) {
+    var obj = {
+        status: true,
+        validation: {}
+    };
+    $(id + " input").each(function(value, index) {
+        var c = $(index);
+        if (c.attr("id")) {
+            if (c.attr("data-req") === 'true' && isEmpty(c.val())) {
+                obj.validation[c.attr("title")] = "<b>" + c.attr("title") + "</b>" + ": não pode ser vazio";
+            } else {
+                if (c.attr("data-req")) {
+                    if (c.attr("data-validation") === 'date') {
+                        var dataval = c.val();
+                        try {
+                            var v = c.val().split("-");
+                            var dataval = v[2] + "/" + v[1] + "/" + v[0];
+                        } catch (e) {}
+                        if (!validaDat(dataval)) {
+                            obj.validation[c.attr("title")] = " Insira uma data válida; ";
+                        } else {
+                            var data_1 = new Date(c.val());
+                            var data_2 = new Date();
+                            if (data_1 > data_2) {
+                                obj.validation[c.attr("title")] = " A data não pode ser maior que a atual.";
+                            }
+                        }
+                    }
+                    if (c.attr("data-validation") === 'email') {
+                        if (!validateEmail(c.val())) {
+                            obj.validation[c.attr("title")] = " Insira um e-mail válido.";
+                        }
+                    }
+                    if (c.attr("data-validation") === 'placa') {
+                        if (!isPlaca(c.val())) {
+                            obj.validation[c.attr("title")] = " Insira uma placa válida.";
+                        }
+                    }
+                    if (c.attr("data-validation") === 'renavam') {
+                        if (c.val().length !== 9) {
+                            obj.validation[c.attr("title")] = " Insira um renavam válido.";
+                        }
+                    }
+                    if (c.attr("data-validation") === 'cpf') {
+                        if (!validarCPF(c.val())) {
+                            obj.validation[c.attr("title")] = " Insira um CPF válido.";
+                        }
+                    }
+                    if (c.attr("data-eq-value") !== null) {
+                        if (c.val() !== $("#" + c.attr("data-eq-value")).val()) {
+                            obj.validation[c.attr("title")] = "Os campos <b>" + $("#" + c.attr("data-eq-value")).attr("title") + "</b> e <b>" + c.attr("title") + "</b> não correspondem";
+                        }
+                    }
+                }
+            }
+        }
+    });
+    if (!isEmpty(obj.validation)) {
+        obj.status = false;
+        obj.template = "<div style='text-align:center'>";
+        for (var b in obj.validation) {
+            obj.template += obj.validation[b] + "<br/>";
+        }
+        obj.template += "</div>";
+    }
+    return obj;
+}
+
+/*
+onkeypress="mascara(this,cpf_mask)" onkeyup="mascara(this,cpf_mask)"
+*/
 function isCPF(value) {
     console.log(value);
     // value = jQuery.trim(value);
@@ -40,6 +116,7 @@ function maxLengthCheck(object) {
         object.value = object.value.slice(0, object.maxLength)
 }
 
+var v_obj, v_fun;
 
 function mascara(o, f) {
     v_obj = o;
@@ -77,7 +154,7 @@ function cpf_mask(v) {
     v = v.replace(/\D/g, ""); //Remove tudo o que não é dígito
     v = v.replace(/(\d{3})(\d)/, "$1.$2"); //Coloca um ponto entre o terceiro e o quarto dígitos
     v = v.replace(/(\d{3})(\d)/, "$1.$2"); //Coloca um ponto entre o terceiro e o quarto dígitos
-        //de novo (para o segundo bloco de números)
+    //de novo (para o segundo bloco de números)
     v = v.replace(/(\d{3})(\d{1,2})$/, "$1-$2"); //Coloca um hífen entre o terceiro e o quarto dígitos
     return v;
 }
@@ -85,6 +162,13 @@ function cpf_mask(v) {
 function cep(v) {
     v = v.replace(/\D/g, ""); //Remove tudo o que não é dígito
     v = v.replace(/^(\d{5})(\d)/, "$1-$2"); //Esse é tão fácil que não merece explicações
+    return v;
+}
+
+function vplaca(v) {
+    // /[a-zA-Z]+/g
+    // v = v.replace(/\D/g, ""); //Remove tudo o que não é dígito
+    // v = v.replace(/^(\d{3})(\d)/, "$1-$2"); //Esse é tão fácil que não merece explicações
     return v;
 }
 
@@ -100,9 +184,9 @@ function cnpj(v) {
 function romanos(v) {
     v = v.toUpperCase(); //Maiúsculas
     v = v.replace(/[^IVXLCDM]/g, ""); //Remove tudo o que não for I, V, X, L, C, D ou M
-        //Essa é complicada! Copiei daqui: http://www.diveintopython.org/refactoring/refactoring.html
+    //Essa é complicada! Copiei daqui: http://www.diveintopython.org/refactoring/refactoring.html
     while (v.replace(/^M{0,4}(CM|CD|D?C{0,3})(XC|XL|L?X{0,3})(IX|IV|V?I{0,3})$/, "") != "");
-        v = v.replace(/.$/, "");
+    v = v.replace(/.$/, "");
     return v
 }
 
@@ -117,7 +201,7 @@ function site(v) {
     dominio = v;
     caminho = "";
     if (v.indexOf("/") > -1);
-        dominio = v.split("/")[0];
+    dominio = v.split("/")[0];
     caminho = v.replace(/[^\/]*/, "");
     dominio = dominio.replace(/[^\w\.\+-:@]/g, "");
     caminho = caminho.replace(/[^\w\d\+-@:\?&=%\(\)\.]/g, "");

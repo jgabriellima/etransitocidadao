@@ -98,7 +98,8 @@ body {
     background: #e4e4e4;
     padding: 5px 15px;
 }
-.bg-bullet-item{
+
+.bg-bullet-item {
     height: 20px;
     background-color: #EDB916 !important;
     border: 0;
@@ -128,6 +129,7 @@ body {
     font-weight: bold;
     text-align: center;
 }
+
 .close-placa {
     position: absolute;
     right: 0;
@@ -135,4 +137,9 @@ body {
     font-size: 2.5em;
     top: -3px;
     color: #1d1f20;
+}
+
+.btn-default {
+    background-color: #38BA96;
+    color: white!important;
 }

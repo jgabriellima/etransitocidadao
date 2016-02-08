@@ -14,7 +14,6 @@ angular.module('Etransitocidadao').factory("API", function($http, $q, API_ENDPOI
             url: API_ENDPOINT.host + '/ipva/servico?r=' + params.r + '&c=' + params.c + '&p=' + params.p + '&d=' + params.d,
             cache: false
         }).success(function(data) {
-            console.log(data);
             if (data.status === true) {
                 deffered.resolve({
                     status: 200,

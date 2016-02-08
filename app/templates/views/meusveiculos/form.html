@@ -11,7 +11,6 @@
 }
 </style>
 <ion-view title="Adicionar Novo Veículo">
-   
     <ion-content class="has-header bg-color" overflow-scroll="false" scroll="false" style="height: 100%;display: table !important;width: 100% !important;height: 100% !important;padding: 20px;">
         <div class="scrollcenter">
             <div class="row row-center">
@@ -23,32 +22,34 @@
                         <img style="width: 50%;height: 4px;" src="images/header.png" alt="">
                     </div>
                     <div class="list">
-                        <label class="item item-input">
-                            <span class="input-label">CPF</span>
-                            <input ng-model="query.c" maxlength="11" oninput="maxLengthCheck(this)" ng-minlength="11" type="number">
-                        </label>
-                        <label class="item item-input">
-                            <span class="input-label">RENAVAM</span>
-                            <input ng-model="query.r" maxlength="9" oninput="maxLengthCheck(this)" ng-minlength="9" type="number">
-                        </label>
-                        <label class="item item-input">
-                            <span class="input-label">PLACA</span>
-                            <input ng-model="query.p" maxlength="7" oninput="maxLengthCheck(this)" ng-minlength="7" type="text" style="text-transform: uppercase;">
-                        </label>
-                        <label class="item item-input">
-                            <span class="input-label">NOME</span>
-                            <input ng-model="query.p" type="text" style="text-transform: uppercase;">
-                        </label>
-                        <li class="item item-toggle">
-                            Receber Notificações:
-                            <label class="toggle toggle-balanced">
-                                <input type="checkbox">
-                                <div class="track">
-                                    <div class="handle"></div>
-                                </div>
+                        <form id="search" ng-submit="buscar()">
+                            <label class="item item-input">
+                                <span class="input-label">CPF</span>
+                                <input ng-model="query.c" title="CPF" type="text" onkeypress="mascara(this,cpf_mask)" onkeyup="mascara(this,cpf_mask)" maxlength="14" data-req="true" data-validation="cpf">
                             </label>
-                        </li>
-                        <button type="submit" class="login button button-block " ng-click="buscar()" style="margin-bottom: 0px;"><i class="ion-ios-search-strong" style="margin-right: 10px;"></i>Adicionar veículo</button>
+                            <label class="item item-input">
+                                <span class="input-label">RENAVAM</span>
+                                <input ng-model="query.r" title="RENAVAM" maxlength="9" oninput="maxLengthCheck(this)" ng-minlength="9" type="number" data-req="true">
+                            </label>
+                            <label class="item item-input">
+                                <span class="input-label">PLACA</span>
+                                <input ng-model="query.p" title="PLACA" maxlength="7" oninput="maxLengthCheck(this)" ng-minlength="7" type="text" style="text-transform: uppercase;" data-req="true">
+                            </label>
+                            <label class="item item-input">
+                                <span class="input-label">NOME</span>
+                                <input ng-model="query.p" title="NOME" type="text" style="text-transform: uppercase;" data-req="true">
+                            </label>
+                            <li class="item item-toggle">
+                                Receber Notificações:
+                                <label class="toggle toggle-balanced">
+                                    <input type="checkbox">
+                                    <div class="track">
+                                        <div class="handle"></div>
+                                    </div>
+                                </label>
+                            </li>
+                            <button type="submit" class="login button button-block " style="margin-bottom: 0px;"><i class="ion-ios-search-strong" style="margin-right: 10px;"></i>Adicionar veículo</button>
+                        </form>
                     </div>
                     <div style="height:50px"></div>
                 </div>

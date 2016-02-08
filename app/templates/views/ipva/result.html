@@ -13,6 +13,11 @@
 }
 </style>
 <ion-view title="Resultado da Consulta">
+    <ion-nav-buttons side="right">
+        <button class="button " ng-click="showinfo()" style="border: 0; background-color: white; font-size: 2em;color: #38ba96;" ng-click="share();">
+            <i class="ion-android-share-alt"></i>
+        </button>
+    </ion-nav-buttons>
     <ion-content class="has-header bg-color">
         <div class="list list-inset" style="background-color: rgba(255, 255, 255, 0);" ng-init="init()">
             <div style="margin-bottom: 10px;margin-top: 10px;" align="center">
@@ -97,6 +102,18 @@
                     {{result.dae.codigobarra}}</p>
                 <button type="submit" class="login button button-block ion-pricetag" style="margin-bottom: 0px;">Copiar Código de Barras</button>
             </a>
+        </div>
+        <div style="margin-bottom: 10px;margin-top: 10px;" align="center">
+            <div style="font-weight:bold">Data de pagamento</div>
+            <p style="font-size:.8em">Escolha uma data dentro do mẽs corrente</p>
+            <img style="width: 50%;" src="images/header.png" alt="">
+        </div>
+        <div class="list list-inset">
+            <label class="item item-input item-stacked-label">
+                <span class="input-label">Verificar com uma nova para pagamento</span>
+                <input type="date" ng-model="q.novadata">
+            </label>
+            <button class="login button button-block" ng-click="novaconsulta()">Consultar</button>
         </div>
         <div style="height:100px"></div>
     </ion-content>

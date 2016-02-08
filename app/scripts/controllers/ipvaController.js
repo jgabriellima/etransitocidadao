@@ -10,28 +10,38 @@ angular.module('Etransitocidadao')
         $scope.query = {}
 
         $scope.buscar = function() {
-            $ionicLoading.show({
-                template: 'Processando... Aguarde!'
-            });
-            if ($scope.query.r && $scope.query.p && $scope.query.c) {
+
+            var vf = vform("form#search");
+            console.log(vf);
+            if (vf.status) {
+                $ionicLoading.show({
+                    template: 'Processando... Aguarde!'
+                });
                 $scope.query.d = createDate();
-                // console.log($scope.query);
+                $scope.query.c = $scope.query.c.replace(/\D/g, "");
+                console.log($scope.query);
                 API.ipva($scope.query).then(function(res) {
                     $ionicLoading.hide();
                     // console.log(res);
                     try {
                         if (res.status !== 500) {
-                            if (sefaVerification(res.results)) {
-                                $localstorage.setObject('ipvaresult', res.results);
-                                $location.path("app/ipvaresult");
+                            if (res.status === 204) {
+                                Alerts.default($scope, "Ops!", res.results.msg, "Ok", function() {});
                             } else {
-                                Alerts.default($scope, "Ops. Que chato!", "Desculpe-nos, mas os serviços da <a href='https://app.sefa.pa.gov.br/'>SEFA-PA</a> estão fora do ar. Não somos respnsáveis por isso. mas sentimos muito por você.", "Ok", function() {
+                                if (sefaVerification(res.results)) {
+                                    $localstorage.setObject('ipvaresult', res.results);
+                                    $location.path("app/ipvaresult");
+                                } else {
+                                    Alerts.default($scope, "Ops. Que chato!", "Desculpe-nos, mas os serviços da <a href='https://app.sefa.pa.gov.br/'>SEFA-PA</a> estão fora do ar. Não somos respnsáveis por isso. mas sentimos muito por você.", "Ok", function() {
 
-                                });
+                                    });
+                                }
                             }
                         }
                     } catch (e) {}
                 });
+            } else {
+                Alerts.default($scope, "Ops! Atenção", vf.template, "Ok", function() {});
             }
 
             function sefaVerification(res) {
